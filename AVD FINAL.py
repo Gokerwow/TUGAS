@@ -126,7 +126,7 @@ plt.title('Hubungan Manajemen Waktu dan Jam Belajar')
 plt.xlabel('Keteraturan Manajemen Waktu')
 plt.ylabel('Jam Belajar per Hari')
 plt.tight_layout()
-plt.savefig('time_management_study_hours_scatter.png')
+plt.savefig('time_management_study_hours_line.png')
 plt.close()
 
 

@@ -50,7 +50,7 @@ X_resampled, y_resampled = smote.fit_resample(X, y)
 clf = DecisionTreeClassifier(max_depth=5, min_samples_split=4, min_samples_leaf=2, random_state=42)
 clf.fit(X, y)
 
-# Visualisasi Decision Tree
+# 1. Visualisasi Decision Tree
 plt.figure(figsize=(12, 8))
 tree.plot_tree(clf, feature_names=X.columns, class_names=clf.classes_, filled=True)
 plt.title('Decision Tree untuk Klasifikasi Motivasi')
@@ -58,7 +58,7 @@ plt.show()
 plt.savefig('Decision tree hasil.png')
 plt.close()
 
-# 1. Decision Tree-like Visualization
+# 2. Decision Tree-like Visualization
 plt.figure(figsize=(12, 6))
 sns.violinplot(x='Motivation_Category', y='Study_Hours_Numeric', 
                hue='Apakah Anda sering menunda-nunda tugas kuliah?', 
@@ -70,7 +70,7 @@ plt.tight_layout()
 plt.savefig('motivation_decision_tree.png')
 plt.close()
 
-# 2. Countplot of Part-time Job
+# 3. Countplot of Part-time Job
 plt.figure(figsize=(10, 6))
 sns.countplot(x='Motivation_Category', hue='Apakah Anda bekerja paruh waktu?', data=df)
 plt.title('Keterlibatan Kerja Paruh Waktu berdasarkan Kategori Motivasi')
@@ -80,7 +80,7 @@ plt.tight_layout()
 plt.savefig('part_time_job_count.png')
 plt.close()
 
-# 3. Stacked Barplot of Motivation by Age and Program
+# 4. Stacked Barplot of Motivation by Age and Program
 motivation_by_age_program = df.groupby(['Usia', 'Program Studi'])['Motivation_Category'].value_counts(normalize=True).unstack()
 plt.figure(figsize=(12, 6))
 motivation_by_age_program.plot(kind='bar', stacked=True)
@@ -92,31 +92,7 @@ plt.tight_layout()
 plt.savefig('motivation_age_program_stacked.png')
 plt.close()
 
-# 4. Bar Plot of Study Hours by Motivation
-plt.figure(figsize=(10, 6))
-sns.barplot(x='Berapa jam per hari Anda alokasikan untuk belajar di luar jam kuliah?', 
-            y='Motivation_Category', 
-            data=df, 
-            order=['> 4 jam', '3-4 jam', '1-2 jam', '< 1 jam'])
-plt.title('Jam Belajar berdasarkan Status Motivasi')
-plt.xlabel('Jam Belajar per Hari')
-plt.ylabel('Status Motivasi')
-plt.tight_layout()
-plt.savefig('study_hours_by_motivation.png')
-plt.close()
-
-# 5. Count Plot of Motivation by Program Studi
-plt.figure(figsize=(12, 6))
-sns.countplot(data=df, x='Program Studi', hue='Motivation_Category')
-plt.title('Status Motivasi berdasarkan Program Studi')
-plt.xlabel('Program Studi')
-plt.ylabel('Jumlah Mahasiswa')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.savefig('motivation_by_program.png')
-plt.close()
-
-# 6. Line Plot of Motivation by Program Studi
+# 5. Line Plot of Motivation by Program Studi
 plt.figure(figsize=(12, 6))
 sns.lineplot(data=df, 
              x='Time_Management_Numeric',

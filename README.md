@@ -47,8 +47,6 @@ Setelah program dijalankan, beberapa grafik visualisasi akan dihasilkan dan disi
 - `motivation_decision_tree.png`
 - `part_time_job_count.png`
 - `motivation_age_program_stacked.png`
-- `study_hours_by_motivation.png`
-- `motivation_by_program.png`
 - `time_management_study_hours_line.png`
 
 File dapat dibuka dalam VS Code itu sendiri, atau bisa pergi ke path dimana file kode tersimpan
